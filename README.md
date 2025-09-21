@@ -2,17 +2,21 @@
 
 <p align="center"> <a href="https://arxiv.org/abs/2509.12875"> <img src="https://img.shields.io/badge/Arxiv-2509.12875-orange.svg"></a> <br> <b>作者:</b> <b>
 <a href="https://github.com/wangjiaqi886">Jiaqi Wang</a>,
-</b> </p>
-
+<a href="https://github.com/neukg">NEU KG Group</a>
+</b> <br>
+<b>arxiv:</b> <b>
+<a href="https://arxiv.org/abs/2509.12875">LTA-thinker</a>
+</b>
+</p>
 
 
 ## 概述
 
 
 
-我们介绍了 **LTA-thinker**，一个为提升大型语言模型（LLM）在复杂推理任务上表现而设计的“潜在思想增强训练框架”。
+我们介绍了 **LTA-thinker**，一个为提升大型语言模型（LLM）在复杂推理任务上表现而设计的“潜思增强训练框架”。
 
-LTA-thinker 框架通过一个高效的辅助语言模型，在模型的潜在空间中生成紧凑而丰富的“思想向量”（Latent Thoughts）。这些思想向量随后被注入到主 LLM 的推理过程中，为主模型提供关键的引导信息，从而在不显著增加计算开销的情况下，有效提升其在数学、策略规划等复杂任务上的准确性和鲁棒性。该框架旨在弥合显式思维链（Chain-of-Thought）的高延迟与模型内在推理能力不足之间的差距。
+Complex Reasoning in Large Language Models can be dynamically optimized using Test-Time Scaling (TTS) to mitigate Overthinking. Methods such as Coconut, SoftCoT and its variant are effective in continuous latent space inference, the core bottleneck still lies in the efficient generation and utilization of high-quality Latent Thought. Drawing from the theory of SoftCoT++ that a larger variance in the generated Latent Thought distribution more closely approximates the golden truth distribution, we propose a Latent Thought-Augmented Training Framework--LTA-Thinker, which improves distributional variance and enhances reasoning performance from two perspectives. First, LTA-Thinker constructs a Latent Thought generation architecture based on a learnable prior. This architecture aims to increase the variance distribution of generated Latent Thought Vectors in order to simplify the overall structure and raise the performance ceiling. Second, LTA-Thinker introduces a distribution-based directional optimization paradigm that jointly constrains both distribution locality and distribution scale. This mechanism improves information efficiency and computational cost through a multi-objective co-training strategy, which combines standard Supervised Fine-Tuning (SFT) loss with two novel losses: Semantic Alignment Loss, which utilizes KL divergence to ensure that the Latent Thought is highly relevant to the semantics of the question; Reasoning Focus Loss, which utilizes a contrastive learning mechanism to guide the model to focus on the most critical reasoning steps. Experiments show that LTA-thinker achieves state-of-the-art (SOTA) performance among various baselines and demonstrates a higher performance ceiling and better scaling effects.
 
 ![LTA-thinker](./data_cover/fig2.png)
 
@@ -22,18 +26,8 @@ LTA-thinker 框架通过一个高效的辅助语言模型，在模型的潜在�
 
 首先，请确保您已安装以下核心依赖项：
 
-- fastNLP==0.7.0
-- torch==2.4.1
-- transformers==4.44.2
-- datasets
-
-您可以通过 `pip` 进行安装：
-
-Bash
-
-```
-pip install fastnlp==0.7.0 torch==2.4.1 transformers==4.44.2 datasets
-```
+- torch==2.7.1
+- transformers==4.53.2
 
 
 
