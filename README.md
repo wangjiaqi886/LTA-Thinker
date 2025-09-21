@@ -14,7 +14,7 @@
 
 LTA-thinker 框架通过一个高效的辅助语言模型，在模型的潜在空间中生成紧凑而丰富的“思想向量”（Latent Thoughts）。这些思想向量随后被注入到主 LLM 的推理过程中，为主模型提供关键的引导信息，从而在不显著增加计算开销的情况下，有效提升其在数学、策略规划等复杂任务上的准确性和鲁棒性。该框架旨在弥合显式思维链（Chain-of-Thought）的高延迟与模型内在推理能力不足之间的差距。
 
-![LTA-thinker](./data_cover/figure2.pdf)
+![LTA-thinker](./data_cover/figure2.png)
 
 ## 快速开始
 
